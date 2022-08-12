@@ -13,7 +13,7 @@ defmodule GoogleCloud.Application do
 
     children = [
       # Start Goth
-      {Goth, name: PxD.Goth, source: source}
+      {Goth, name: GoogleCloud.Goth, source: source}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
