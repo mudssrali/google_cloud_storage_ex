@@ -29,12 +29,13 @@ defmodule GoogleCloud.Storage do
            %{name: object_name},
            file_path
          ) do
-      {:ok, object} ->
+      {:ok, object} = resp ->
         Logger.info("Uploaded #{object.name}")
-        {:ok, object}
+        resp
 
-      {:error, reason} ->
-        {:error, reason}
+      {:error, reason} = error ->
+        Logger.error(fn -> inspect(reason) end)
+        error
     end
   end
 end
